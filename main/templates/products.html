@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product-item {
+      background-color: #F2F2F2;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+    }
+    .product-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Товары</h1>
+  <div class="products-container">
+    {% for product in products_list %}
+      <div class="product-item">
+        <img src="{{ product.image.url }}" alt="Изображение товара" class="product-image">
+        <p>{{ product.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

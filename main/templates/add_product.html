@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    form {
+      border: none;
+      padding: 20px;
+    }
+    button[type="submit"] {
+      width: 30%;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    a {
+      color: #4CAF50;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добавление товара/услуги</h1>
+  {% if user.is_authenticated%}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+  {% else %}
+  <p>Для добавление товара/услуги необходимо авторизоваться</p>
+    <a href="{% url 'login' %}">Войти в аккаунт</a>
+  {% endif %}
+</body>
+</html>
